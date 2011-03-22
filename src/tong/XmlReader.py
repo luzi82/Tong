@@ -10,6 +10,8 @@ class XmlReader:
         self.success = False
         self.resultClass = None
         self.stateList = []
+        self.elementDict = dict()
+        self.elementList = []
     
     def setFile(self, file):
         self.file = file
@@ -22,6 +24,10 @@ class XmlReader:
         self.stateList.append(InitState())
         self.stateList[0].reader = self
         p.ParseFile(open(self.file, "rb"))
+        for e in self.elementList:
+            if e.getKey() in self.elementDict:
+                raise Exception(e.getKey + " dup")
+            self.elementDict[e.getKey()] = e
 
     def start_element(self, name, attrs):
         print('Start element:', name, attrs)
@@ -38,7 +44,9 @@ class XmlReader:
         print('End element:', name)
         oldState = self.stateList[-2]
         newState = self.stateList[-1]
-        oldState.input(newState.output())
+        output = newState.output();
+        self.elementList.append(output)
+        oldState.input(output)
         self.stateList.pop()
 
     def char_data(self, data):
@@ -117,7 +125,7 @@ class FuncInState(XmlReaderState):
 
     def set(self, name, attrs):
         super().set(name, attrs)
-        self.me.typeKey = attrs["type"].split(".")
+        self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
             self.me.dimension = attrs["dimension"]
         
@@ -129,9 +137,6 @@ class FuncOutState(XmlReaderState):
 
     def set(self, name, attrs):
         super().set(name, attrs)
-        self.me.typeKey = attrs["type"].split(".")
+        self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
             self.me.dimension = attrs["dimension"]
-
-
-

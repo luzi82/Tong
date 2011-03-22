@@ -6,9 +6,7 @@ class TongElement(object):
         self.memberList = []
     
     def getKey(self):
-        if self.parent == None:
-            key = []
+        if self.parentElement == None:
+            return self.nameString
         else:
-            key = self.parent.getKey()
-        key.append(self.name)
-        return key
+            return self.parentElement.getKey()+"."+self.nameString
