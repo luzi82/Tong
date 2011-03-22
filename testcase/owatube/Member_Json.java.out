@@ -1,0 +1,36 @@
+package com.test;
+
+public class Member_Json extends Json {
+
+	@Override
+	public void login(String username,String password,LoginHandler handler){
+		new LoginAgent(username, password, handler).sendRequest();
+	}
+	private class LoginAgent extends AbstractJsonAgent<LoginOutput> {
+		private LoginHandler handler;
+		public LoginAgent(String username,String password,LoginHandler handler){
+			super(URL);
+			setRequestData("func","login");
+			setRequestData("in_username",username);
+			setRequestData("in_password",password);
+			this.handler=handler;
+		}
+		public callback(LoginOutput output) {
+			if(handler==null)return;
+			if(output==null){handler.handle_Member_login(com.luzi82.tong.Err.CONNECTION,null,null);return;}
+			handler.handle_Member_login(null,output.get_err(),output.get_token());
+		}
+	}
+	private static class LoginOutput extends JavaScriptObject {
+		protected LoginOutput(){}
+		public final native String get_err() /*-{return this.err;}-*/;
+		public final native String get_token() /*-{return this.token;}-*/;
+	}
+
+	public static void registerInstance(){
+		setInstance(new Member_Json());
+	}
+
+	private static String URL = "http://localhost/~luzi82/owatube-json/json/Member_Json.json.php";
+
+}

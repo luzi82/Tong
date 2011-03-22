@@ -1,0 +1,30 @@
+package com.test;
+
+public abstract class Owata {
+
+	public abstract void createGame(String user_token,LoginHandler handler);
+	public static interface CreateGameHandler {
+		public void handle_Owata_createGame(Owt.Err err,String game_id);
+	}
+
+	public abstract void setState(String user_token,String state,LoginHandler handler);
+	public static interface SetStateHandler {
+		public void handle_Owata_setState(Owt.Err err,Owata.State state);
+	}
+	
+	public static enum State {
+		EDIT,
+		PUBLISH,
+		DEAD
+	};
+
+	public static Owata getInstance(){
+		return instance;
+	}
+
+	private static Owata instance;
+	static public void setInstance(Owata _instance){
+		instance=_instance;
+	}
+
+}

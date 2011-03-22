@@ -1,0 +1,19 @@
+package com.test;
+
+public abstract class Member {
+
+	public abstract void login(String username,String password,LoginHandler handler);
+	public static interface LoginHandler {
+		public void handle_Member_login(com.luzi82.tong.Err tong_err,Owt.Err err,String token);
+	}
+
+	public static Member getInstance(){
+		return instance;
+	}
+
+	private static Member instance;
+	static protected void setInstance(Member _instance){
+		instance=_instance;
+	}
+
+}

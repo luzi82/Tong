@@ -1,0 +1,8 @@
+<class>
+	<func name="login">
+		<in type="txt" name="username"/>
+		<in type="txt" name="password"/>
+		<out type="owt.err" name="err"/>
+		<out type="txt" name="token"/>
+	</func>
+</class>

@@ -1,0 +1,31 @@
+<class>
+	<func name="f0">
+	</func>
+	<func name="f1" />
+	<func name="f2">
+		<in type="txt" name="a0"/>
+	</func>
+	<func name="f3">
+		<in type="int" name="a0"/>
+	</func>
+	<func name="f4">
+		<in type="txt" name="a0"/>
+		<in type="int" name="a1"/>
+	</func>
+	<func name="f5">
+		<out type="txt" name="o0"/>
+	</func>
+	<func name="f6">
+		<out type="int" name="o0"/>
+	</func>
+	<func name="f7">
+		<out type="txt" name="o0"/>
+		<out type="int" name="o1"/>
+	</func>
+	<func name="f8">
+		<in type="txt" name="a0"/>
+		<in type="int" name="a1"/>
+		<out type="txt" name="o0"/>
+		<out type="int" name="o1"/>
+	</func>
+</class>

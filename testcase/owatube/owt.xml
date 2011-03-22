@@ -1,0 +1,12 @@
+<class>
+	<enum name="err">
+		<!-- common -->
+		<value name="none"/>
+		<value name="general"/>
+		<!-- member -->
+		<value name="login"/>
+		<value name="user_token"/>
+		<!-- owata -->
+		<value name="game_id"/>
+	</enum>
+</class>

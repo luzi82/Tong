@@ -1,0 +1,11 @@
+<class>
+	<func name="list_all">
+		<out type="owt.err" name="err"/>
+		<out type="play_list.game_data" dimension="1" name="game_data"/>
+	</func>
+	<struct name="game_data">
+		<member type="txt" name="game_id"/>
+		<member type="txt" name="author_name"/>
+		<member type="txt" name="game_token"/>
+	</struct>
+</class>

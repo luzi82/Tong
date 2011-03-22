@@ -1,0 +1,29 @@
+<class>
+	<func name="create_game">
+		<in type="txt" name="user_token"/>
+		<out type="owt.err" name="err"/>
+		<out type="txt" name="game_id"/>
+	</func>
+	<func name="set_music">
+		<in type="txt" name="user_token"/>
+		<in type="txt" name="game_id"/>
+		<in type="file" name="file"/>
+		<out type="owt.err" name="err"/>
+	</func>
+	<func name="set_data">
+		<in type="txt" name="user_token"/>
+		<in type="txt" name="game_id"/>
+		<in type="file" name="file"/>
+		<out type="owt.err" name="err"/>
+	</func>
+	<func name="set_state">
+		<in type="txt" name="user_token"/>
+		<in type="owata.state" name="state"/>
+		<out type="owt.err" name="err"/>
+	</func>
+	<enum name="state">
+		<value name="edit"/>
+		<value name="publish"/>
+		<value name="dead"/>
+	</enum>
+</class>

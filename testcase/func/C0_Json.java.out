@@ -1,0 +1,19 @@
+package com.test;
+
+class C0_Json extends C0 {
+	
+	public F0Result f0() {
+	}
+	private static class F0Agent extends com.luzi82.tong.json.AbstractJsonAgent<F0Result> {
+		public F0Agent(){
+			super(URL);
+		}
+	}
+	
+	public static void registerInstance(){
+		C0.setInstance(new C0_Json());
+	}
+	
+	private static String URL = "http://www.example.com/text/C0.json.php";
+	
+}

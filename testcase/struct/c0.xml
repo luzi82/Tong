@@ -1,0 +1,15 @@
+<class>
+	<struct name="s0">
+	</struct>
+	<struct name="s1" />
+	<struct name="s2">
+		<member type="txt" name="m0"/>
+	</struct>
+	<struct name="s3">
+		<member type="int" name="m0"/>
+	</struct>
+	<struct name="s4">
+		<member type="txt" name="m0"/>
+		<member type="int" name="m1"/>
+	</struct>
+</class>

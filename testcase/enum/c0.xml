@@ -1,0 +1,10 @@
+<class>
+	<enum name="e0">
+	</enum>
+	<enum name="e1"/>
+	<enum name="e2">
+		<value name="v0"/>
+		<value name="v1"/>
+		<value name="v2"/>
+	</enum>
+</class>

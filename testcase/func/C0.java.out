@@ -1,0 +1,59 @@
+package com.test;
+
+public abstract class C0 {
+
+	public abstract void f0(F0Handler handler);
+	public static interface F0Handler {
+		public void handle_C0_f0(com.luzi82.tong.Err err);
+	}
+
+	public abstract void f1(F0Handler handler);
+	public static interface F1Handler {
+		public void handle_C0_f1(com.luzi82.tong.Err err);
+	}
+
+	public abstract void f2(String a0,F0Handler handler);
+	public static interface F2Handler {
+		public void handle_C0_f2(com.luzi82.tong.Err err);
+	}
+
+	public abstract void f3(int a0,F0Handler handler);
+	public static interface F3Handler {
+		public void handle_C0_f3(com.luzi82.tong.Err err);
+	}
+
+	public abstract void f4(String a0,int a1,F0Handler handler);
+	public static interface F4Handler {
+		public void handle_C0_f4(com.luzi82.tong.Err err);
+	}
+
+	public abstract void f5(F0Handler handler);
+	public static interface F5Handler {
+		public void handle_C0_f5(com.luzi82.tong.Err err,String o0);
+	}
+
+	public abstract void f6(F0Handler handler);
+	public static interface F6Handler {
+		public void handle_C0_f6(com.luzi82.tong.Err err,int o0);
+	}
+
+	public abstract void f7(F0Handler handler);
+	public static interface F7Handler {
+		public void handle_C0_f7(com.luzi82.tong.Err err,String o0,int o1);
+	}
+
+	public abstract void f8(String a0,int a1,F0Handler handler);
+	public static interface F8Handler {
+		public void handle_C0_f8(com.luzi82.tong.Err err,String o0,int o1);
+	}
+
+	public static C0 getInstance(){
+		return instance;
+	}
+	
+	private static C0 instance;
+	static public void setInstance(C0 _instance){
+		instance=_instance;
+	}
+	
+}
