@@ -2,6 +2,7 @@ import xml.parsers.expat
 from tong_element.TongClass import TongClass
 import os.path
 from tong_element.TongFunc import TongFuncIn, TongFuncOut, TongFunc
+from tong_element.TongStruct import TongStruct, TongStructMember
 
 class XmlReader:
     
@@ -104,6 +105,8 @@ class ClassState(XmlReaderState):
     def child(self, name, attrs):
         if name == "func":
             return FuncState()
+        if name == "struct":
+            return StructState()
         
 
 class FuncState(XmlReaderState):
@@ -127,7 +130,7 @@ class FuncInState(XmlReaderState):
         super().set(name, attrs)
         self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
-            self.me.dimension = attrs["dimension"]
+            self.me.dimension = int(attrs["dimension"])
         
 
 class FuncOutState(XmlReaderState):
@@ -139,4 +142,24 @@ class FuncOutState(XmlReaderState):
         super().set(name, attrs)
         self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
-            self.me.dimension = attrs["dimension"]
+            self.me.dimension = int(attrs["dimension"])
+
+class StructState(XmlReaderState):
+    
+    def __init__(self):
+        self.me = TongStruct()
+
+    def child(self, name, attrs):
+        if name == "member":
+            return StructMemberState()
+
+class StructMemberState(XmlReaderState):
+
+    def __init__(self):
+        self.me = TongStructMember()
+    
+    def set(self, name, attrs):
+        super().set(name, attrs)
+        self.me.typeKey = attrs["type"]
+        if "dimension" in attrs:
+            self.me.dimension = int(attrs["dimension"])

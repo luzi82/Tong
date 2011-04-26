@@ -8,6 +8,7 @@ from tong.XmlReader import XmlReader
 from tong_element.TongClass import TongClass
 from tong_element.TongFunc import TongFunc
 from tong_element.TongFunc import TongFuncIn, TongFuncOut
+from tong_element.TongStruct import TongStruct, TongStructMember
 
 
 class XmlReaderTest(unittest.TestCase):
@@ -22,7 +23,7 @@ class XmlReaderTest(unittest.TestCase):
         xr = XmlReader()
         xr.setFile("testcase/func/c0.xml")
         xr.process()
-        self.assertTrue(xr.success);
+        self.assertTrue(xr.success)
 
         resultClass = xr.resultClass
         self.assertTrue(isinstance(resultClass, TongClass))
@@ -211,6 +212,148 @@ class XmlReaderTest(unittest.TestCase):
         
         self.assertEqual(len(xr.elementDict),22)
         self.assertEqual(len(xr.elementList),22)
+
+    def test_struct(self):
+        xr = XmlReader()
+        xr.setFile("testcase/struct/c0.xml")
+        xr.process()
+        self.assertTrue(xr.success)
+        
+        resultClass = xr.resultClass
+        self.assertTrue(isinstance(resultClass, TongClass))
+        self.assertEqual(xr.elementDict["c0"],resultClass)
+        self.assertNotEqual(resultClass.memberList, None)
+        self.assertEqual(resultClass.nameString, "c0")
+        self.assertEqual(resultClass.parentElement, None)
+        self.assertEqual(len(resultClass.memberList), 8)
+
+        mem = xr.resultClass.memberList[0]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s0"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s0")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 0);
+
+        mem = xr.resultClass.memberList[1]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s1"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s1")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 0);
+
+        mem = xr.resultClass.memberList[2]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s2"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s2")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 1);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s2.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "txt")
+        self.assertEqual(memm.dimension, 0)
+
+        mem = xr.resultClass.memberList[3]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s3"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s3")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 1);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s3.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "int")
+        self.assertEqual(memm.dimension, 0)
+
+        mem = xr.resultClass.memberList[4]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s4"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s4")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 2);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s4.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "txt")
+        self.assertEqual(memm.dimension, 0)
+        memm = mem.memberList[1]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s4.m1"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m1")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "int")
+        self.assertEqual(memm.dimension, 0)
+
+        mem = xr.resultClass.memberList[5]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s5"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s5")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 1);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s5.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "c0.s0")
+        self.assertEqual(memm.dimension, 0)
+
+        mem = xr.resultClass.memberList[6]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s6"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s6")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 1);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s6.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "txt")
+        self.assertEqual(memm.dimension, 1)
+
+        mem = xr.resultClass.memberList[7]
+        self.assertNotEqual(mem, None)
+        self.assertEqual(xr.elementDict["c0.s7"],mem)
+        self.assertTrue(isinstance(mem, TongStruct))
+        self.assertEqual(mem.nameString, "s7")
+        self.assertEqual(mem.parentElement, resultClass)
+        self.assertNotEqual(mem.memberList, None)
+        self.assertEqual(len(mem.memberList), 1);
+        memm = mem.memberList[0]
+        self.assertNotEqual(memm, None)
+        self.assertEqual(xr.elementDict["c0.s7.m0"],memm)
+        self.assertTrue(isinstance(memm, TongStructMember))
+        self.assertEqual(memm.nameString, "m0")
+        self.assertEqual(memm.parentElement, mem)
+        self.assertEqual(memm.typeKey, "c0.s0")
+        self.assertEqual(memm.dimension, 1)
 
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']

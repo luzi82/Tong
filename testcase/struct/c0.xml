@@ -12,4 +12,13 @@
 		<member type="txt" name="m0"/>
 		<member type="int" name="m1"/>
 	</struct>
+	<struct name="s5">
+		<member type="c0.s0" name="m0"/>
+	</struct>
+	<struct name="s6">
+		<member type="txt" name="m0" dimension="1"/>
+	</struct>
+	<struct name="s7">
+		<member type="c0.s0" name="m0" dimension="1"/>
+	</struct>
 </class>
