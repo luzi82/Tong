@@ -28,6 +28,7 @@ class XmlReader:
             if e.getKey() in self.elementDict:
                 raise Exception(e.getKey + " dup")
             self.elementDict[e.getKey()] = e
+        self.success = True;
 
     def start_element(self, name, attrs):
         print('Start element:', name, attrs)
@@ -84,7 +85,6 @@ class XmlReaderState(object):
 class InitState(XmlReaderState):
     
     def child(self, name, attrs):
-        print("fuck")
         if name == "class":
             return ClassState()
         
