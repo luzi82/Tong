@@ -22,7 +22,7 @@ class XmlReaderTest(unittest.TestCase):
         xr = XmlReader()
         xr.setFile("testcase/func/c0.xml")
         xr.process()
-        xr.success = True
+        self.assertTrue(xr.success);
 
         resultClass = xr.resultClass
         self.assertTrue(isinstance(resultClass, TongClass))
@@ -64,7 +64,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a0")
         self.assertEqual(fin.parentElement, func)
-        self.assertSequenceEqual(fin.typeKey, "txt")
+        self.assertEqual(fin.typeKey, "txt")
         self.assertEqual(fin.dimension, 0)
 
         func = xr.resultClass.memberList[3]
@@ -81,7 +81,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a0")
         self.assertEqual(fin.parentElement,func)
-        self.assertSequenceEqual(fin.typeKey, "int")
+        self.assertEqual(fin.typeKey, "int")
         self.assertEqual(fin.dimension, 0)
 
         func = xr.resultClass.memberList[4]
@@ -98,7 +98,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a0")
         self.assertEqual(fin.parentElement,func)
-        self.assertSequenceEqual(fin.typeKey, "txt")
+        self.assertEqual(fin.typeKey, "txt")
         self.assertEqual(fin.dimension, 0)
         fin = func.memberList[1]
         self.assertNotEqual(fin, None)
@@ -106,7 +106,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a1")
         self.assertEqual(fin.parentElement,func)
-        self.assertSequenceEqual(fin.typeKey, "int")
+        self.assertEqual(fin.typeKey, "int")
         self.assertEqual(fin.dimension, 0)
 
         func = xr.resultClass.memberList[5]
@@ -123,7 +123,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o0")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "txt")
+        self.assertEqual(fout.typeKey, "txt")
         self.assertEqual(fout.dimension, 0)
 
         func = xr.resultClass.memberList[6]
@@ -140,7 +140,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o0")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "int")
+        self.assertEqual(fout.typeKey, "int")
         self.assertEqual(fout.dimension, 0)
 
         func = xr.resultClass.memberList[7]
@@ -157,7 +157,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o0")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "txt")
+        self.assertEqual(fout.typeKey, "txt")
         self.assertEqual(fout.dimension, 0)
         fout = func.memberList[1]
         self.assertNotEqual(fout, None)
@@ -165,7 +165,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o1")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "int")
+        self.assertEqual(fout.typeKey, "int")
         self.assertEqual(fout.dimension, 0)
 
         func = xr.resultClass.memberList[8]
@@ -182,7 +182,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a0")
         self.assertEqual(fin.parentElement,func)
-        self.assertSequenceEqual(fin.typeKey, "txt")
+        self.assertEqual(fin.typeKey, "txt")
         self.assertEqual(fin.dimension, 0)
         fin = func.memberList[1]
         self.assertNotEqual(fin, None)
@@ -190,7 +190,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fin, TongFuncIn))
         self.assertEqual(fin.nameString, "a1")
         self.assertEqual(fin.parentElement,func)
-        self.assertSequenceEqual(fin.typeKey, "int")
+        self.assertEqual(fin.typeKey, "int")
         self.assertEqual(fin.dimension, 0)
         fout = func.memberList[2]
         self.assertNotEqual(fout, None)
@@ -198,7 +198,7 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o0")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "txt")
+        self.assertEqual(fout.typeKey, "txt")
         self.assertEqual(fout.dimension, 0)
         fout = func.memberList[3]
         self.assertNotEqual(fout, None)
@@ -206,12 +206,12 @@ class XmlReaderTest(unittest.TestCase):
         self.assertTrue(isinstance(fout, TongFuncOut))
         self.assertEqual(fout.nameString, "o1")
         self.assertEqual(fout.parentElement,func)
-        self.assertSequenceEqual(fout.typeKey, "int")
+        self.assertEqual(fout.typeKey, "int")
         self.assertEqual(fout.dimension, 0)
         
         self.assertEqual(len(xr.elementDict),22)
         self.assertEqual(len(xr.elementList),22)
-        
+
 if __name__ == "__main__":
     #import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
