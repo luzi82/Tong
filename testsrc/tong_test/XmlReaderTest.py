@@ -23,7 +23,6 @@ class XmlReaderTest(unittest.TestCase):
         xr = XmlReader()
         xr.setFile("testcase/func/c0.xml")
         xr.process()
-        self.assertTrue(xr.success)
 
         resultClass = xr.resultClass
         self.assertTrue(isinstance(resultClass, TongClass))
@@ -217,7 +216,6 @@ class XmlReaderTest(unittest.TestCase):
         xr = XmlReader()
         xr.setFile("testcase/struct/c0.xml")
         xr.process()
-        self.assertTrue(xr.success)
         
         resultClass = xr.resultClass
         self.assertTrue(isinstance(resultClass, TongClass))
