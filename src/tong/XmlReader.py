@@ -8,7 +8,6 @@ class XmlReader:
     
     def __init__(self):
         self.file = None
-        self.success = False
         self.resultClass = None
         self.stateList = []
         self.elementDict = dict()
@@ -29,7 +28,6 @@ class XmlReader:
             if e.getKey() in self.elementDict:
                 raise Exception(e.getKey + " dup")
             self.elementDict[e.getKey()] = e
-        self.success = True;
 
     def start_element(self, name, attrs):
         print('Start element:', name, attrs)
