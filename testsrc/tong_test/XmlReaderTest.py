@@ -1,6 +1,4 @@
 '''
-Created on 2011年3月21日
-
 @author: luzi82
 '''
 import unittest

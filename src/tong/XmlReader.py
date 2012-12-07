@@ -97,7 +97,7 @@ class ClassState(XmlReaderState):
         self.me = TongClass()
     
     def set(self, name, attrs):
-        super().set(name, attrs)
+        super(ClassState,self).set(name, attrs)
         self.me.nameString = os.path.basename(self.reader.file).split(".")[0]
 
     def child(self, name, attrs):
@@ -125,7 +125,7 @@ class FuncInState(XmlReaderState):
         self.me = TongFuncIn()
 
     def set(self, name, attrs):
-        super().set(name, attrs)
+        super(FuncInState,self).set(name, attrs)
         self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
             self.me.dimension = int(attrs["dimension"])
@@ -137,7 +137,7 @@ class FuncOutState(XmlReaderState):
         self.me = TongFuncOut()
 
     def set(self, name, attrs):
-        super().set(name, attrs)
+        super(FuncOutState,self).set(name, attrs)
         self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
             self.me.dimension = int(attrs["dimension"])
@@ -157,7 +157,7 @@ class StructMemberState(XmlReaderState):
         self.me = TongStructMember()
     
     def set(self, name, attrs):
-        super().set(name, attrs)
+        super(StructMemberState,self).set(name, attrs)
         self.me.typeKey = attrs["type"]
         if "dimension" in attrs:
             self.me.dimension = int(attrs["dimension"])
